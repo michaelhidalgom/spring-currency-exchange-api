@@ -33,3 +33,17 @@ public class IntercambioController {
         return ResponseEntity.ok(intercambioService.obtenerIntercambios());
     }
 }
+
+  /* (B)
+     POSTMAN:
+        Authorization:
+            Auth Type: Bearer Token
+
+		Body:
+			--> raw	    --> JSON
+        {
+            "monto": 100.00,
+            "monedaOrigen": "USD",
+            "monedaDestino": "PEN"
+        }
+   */

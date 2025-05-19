@@ -15,3 +15,4 @@ Desarrollar una API con las siguientes consideraciones:
 
 ## Funcionalidades Opcionales:
 * Crear una API para listar todos los registros guardados del tipo de cambio.
+* Implementar un nivel de seguridad en la consulta (JWT).
