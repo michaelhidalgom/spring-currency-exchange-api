@@ -1,4 +1,4 @@
-
+ 
 1. Se ingresan los datos de cambio, se realiza la solicitud y se recibe
    la respuesta esperada
 
@@ -12,7 +12,7 @@ curl --location 'http://localhost:8090/api/intercambios/procesa' \
 }'
 ```
 
-![alt text](image.png)
+![image](https://github.com/user-attachments/assets/138a52d4-bf03-4bec-80ac-7f47b7800879)
 
 2. Para listar todos los cambios de moneda, se ingresa el token y se realiza
    la solicitud
@@ -21,7 +21,8 @@ curl --location 'http://localhost:8090/api/intercambios/procesa' \
 curl --location 'http://localhost:8090/api/intercambios' \
 --data ''
 ```
-![alt text](image-1.png)
+![image](https://github.com/user-attachments/assets/b12b8dad-cede-4479-989d-502f7aef829b)
+
 
 
 
