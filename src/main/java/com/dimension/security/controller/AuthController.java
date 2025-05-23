@@ -24,39 +24,17 @@ public class AuthController {
     @Autowired
     private JwtTokenProvider jwtTokenProvider;
 
-    // (A)
-    // Retorna el token JWT
-    // http://localhost:8080/api/auth/login
     @PostMapping("/login")
     public ResponseEntity<JWTAuthResponseDTO> authenticateUser(@RequestBody LoginDTO loginDTO) {
 
-        // authenticationManager.authenticate:
-        // Autentica el objeto Authentication pasado y retorna un objeto Authentication
-        // completo (incluido las autorizaciones otorgadas), en caso no autentique, arroja una excepcion
         Authentication authentication =
                 authenticationManager.authenticate(
                         new UsernamePasswordAuthenticationToken(loginDTO.getUsername(), loginDTO.getPassword()));
 
-        // SecurityContextHolder:
-        // Almacena los detalles sobre los usuarios que ya estan autenticados
         SecurityContextHolder.getContext().setAuthentication(authentication);
 
-        // Se obtiene el token
         String token = jwtTokenProvider.generarToken(authentication);
 
         return ResponseEntity.ok(new JWTAuthResponseDTO(token));
     }
 }
-
-  /* (A)
-     POSTMAN:
-        Authorization:
-            Type: No Auth
-
-		Body:
-			--> raw	    --> JSON
-			{
-				"username" : "luis",
-				"password" : "luis123"
-			}
-   */

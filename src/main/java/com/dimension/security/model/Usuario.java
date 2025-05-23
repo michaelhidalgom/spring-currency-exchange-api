@@ -1,8 +1,12 @@
 package com.dimension.security.model;
 
-import javax.persistence.*;
-import java.util.HashSet;
-import java.util.Set;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
+
 
 @Entity
 @Table(name = "usuarios", uniqueConstraints = { @UniqueConstraint(columnNames = { "username" }),
@@ -18,13 +22,6 @@ public class Usuario {
 	private String password;
 
 	private Boolean enabled;
-
-	@ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-	@JoinTable(name = "usuarios_roles",
-			joinColumns = @JoinColumn(name = "usuario_id", referencedColumnName = "id"), //id: atributo id en clase Usuario
-			inverseJoinColumns = @JoinColumn(name = "rol_id", referencedColumnName = "id") //id:  atributo id en clase Rol
-	)
-	private Set<Rol> roles = new HashSet<>();
 
 	public long getId() {
 		return id;
@@ -65,13 +62,4 @@ public class Usuario {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-
-	public Set<Rol> getRoles() {
-		return roles;
-	}
-
-	public void setRoles(Set<Rol> roles) {
-		this.roles = roles;
-	}
-
 }

@@ -71,8 +71,7 @@ public class MainSecurityConfig extends WebSecurityConfigurerAdapter {
             //.csrf().disable()
 
             .csrf()
-            .ignoringAntMatchers("/h2-console/**", "/api/intercambios/**","/api/auth/**") // Ignora CSRF para H2 Console y autenticación
-            //.ignoringAntMatchers("/h2-console/**","/api/auth/**")
+            .ignoringAntMatchers("/h2-console/**", "/api/**") // Ignora CSRF para H2 Console y autenticación
             .and()
 
             //Permite configurar el manejo de excepciones
@@ -92,14 +91,8 @@ public class MainSecurityConfig extends WebSecurityConfigurerAdapter {
                 //Los recursos en cuya URL se le antecede "public" no requieren autenticacion.
                 .antMatchers("/api/public/**",
                         "/api/encryption/**",
-                        //"/api/intercambios/**",
                         "/h2-console/**",
                         "/api/auth/**").permitAll()
-
-                //Asigna permisos a URL's por roles.
-                //Los usuarios con rol "ADMIN" tienen acceso a los recursos en cuya URL se le antecede "admin"
-                .antMatchers("/api/admin/**").hasAuthority("ROLE_ADMIN")
-
             //Todas las demas URLs de la aplicacion requieren autenticacion
             .anyRequest().authenticated()
             .and()
@@ -113,7 +106,5 @@ public class MainSecurityConfig extends WebSecurityConfigurerAdapter {
     //filtro UsernamePasswordAuthenticationFilter
     http.addFilterBefore(jwtAuthenticationFilter(), UsernamePasswordAuthenticationFilter.class);
   }
-
-
 }
 

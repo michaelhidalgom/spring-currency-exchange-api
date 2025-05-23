@@ -10,10 +10,11 @@
 <!--		<version>2.6.7</version>-->
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.formacionbdi.springboot.app.item</groupId>
+
+	<groupId>com.dimension</groupId>
 	<artifactId>currency-exchange-feign-security</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>tipo-cambio-seguridad</name>
+	<name>currency-exchange-api</name>
 	<description>Demo project for Spring Boot</description>
 
 	<properties>
