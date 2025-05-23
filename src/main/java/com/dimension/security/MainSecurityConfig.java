@@ -73,6 +73,7 @@ public class MainSecurityConfig extends WebSecurityConfigurerAdapter {
             .csrf()
             .ignoringAntMatchers("/h2-console/**", "/api/**") // Ignora CSRF para H2 Console y autenticación
             .and()
+            .cors().and()
 
             //Permite configurar el manejo de excepciones
             .exceptionHandling()
